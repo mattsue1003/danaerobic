@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>舞蹈有氧頻道與影片查詢資料庫</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">YouTube Dance Aerobics Finder</p>
+          <h1 id="page-title">舞蹈有氧頻道與影片查詢資料庫</h1>
+          <p class="subtitle">用分類、地區、標籤與關鍵字快速找到隨音樂跟跳的一般有氧或長輩友善內容。</p>
+        </div>
+        <div class="stats" aria-label="資料摘要">
+          <div>
+            <strong id="videoTotal">0</strong>
+            <span>影片</span>
+          </div>
+          <div>
+            <strong id="channelTotal">0</strong>
+            <span>頻道</span>
+          </div>
+          <div>
+            <strong id="regionTotal">0</strong>
+            <span>地區</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="查詢工具">
+        <div class="search-wrap">
+          <label for="searchInput">搜尋</label>
+          <input id="searchInput" type="search" placeholder="輸入舞蹈有氧、倫巴、Zumba、Gold、初學、低衝擊..." autocomplete="off">
+        </div>
+
+        <div class="control-row">
+          <fieldset>
+            <legend>資料類型</legend>
+            <div class="segmented" id="typeTabs">
+              <button class="active" type="button" data-type="videos">影片</button>
+              <button type="button" data-type="channels">頻道</button>
+            </div>
+          </fieldset>
+
+          <fieldset id="categoryFilter">
+            <legend>分類</legend>
+            <div class="chips" data-filter="category"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>地區</legend>
+            <div class="chips" data-filter="region"></div>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>標籤</legend>
+          <div class="chips tag-list" data-filter="tags"></div>
+        </fieldset>
+      </section>
+
+      <section class="results-header" aria-live="polite">
+        <div>
+          <p id="resultCount">0 筆結果</p>
+          <p id="activeFilters">全部資料</p>
+        </div>
+        <button id="resetButton" type="button">清除篩選</button>
+      </section>
+
+      <section id="results" class="results-grid" aria-label="查詢結果"></section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="result-card">
+        <div class="card-topline">
+          <span class="kind"></span>
+          <span class="region"></span>
+        </div>
+        <h2></h2>
+        <p class="meta"></p>
+        <div class="tag-row"></div>
+        <div class="card-actions"></div>
+      </article>
+    </template>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
